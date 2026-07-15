@@ -26,6 +26,7 @@ export class AuthService {
     throw new UnauthorizedException('Please check your login credentials');
   }
   async protect(jwtToken: string) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const verifyToekn = await this.jwtService.verifyAsync(jwtToken, {
       secret: 'Very Strong',
     });
